@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator</title>
+</head>
+<style>
+    *{
+        background-color: grey;
+    }
+    #height,#weight{
+        text-align: center;
+        padding: 20px;
+    }
+    button{
+        margin-left: 200px;
+        margin-top: 30px;
+    }
+
+</style>
+<body>
+    <div id="height">
+   Height in cm : <input type="number" id="heightinput">
+   </div>
+   <div id="weight">
+    Weight in kg : <input type="number" id="weightinput">
+   </div>
+
+   <button id="submit">calculate</button>
+   <div id="result"></div>
+</body>
+<script>
+    
+    
+    const btn=document.getElementById('submit')
+    
+    btn.addEventListener('click',()=>{
+        const h=document.getElementById('heightinput').value
+        const w=document.getElementById('weightinput').value
+    
+     const report=document.createElement('p')
+     report.innerText=`Your BMI is : ${(w*10000)/(h*h)}`
+
+     const show=document.querySelector('#result')
+     show.appendChild(report)
+
+    })
+
+
+</script>
+</html>
