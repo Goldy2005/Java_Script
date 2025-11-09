@@ -39,11 +39,8 @@
         const h=document.getElementById('heightinput').value
         const w=document.getElementById('weightinput').value
     
-     const report=document.createElement('p')
+     const report=document.querySelector('#result')
      report.innerText=`Your BMI is : ${(w*10000)/(h*h)}`
-
-     const show=document.querySelector('#result')
-     show.appendChild(report)
 
     })
 
