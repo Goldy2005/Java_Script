@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number Game</title>
+</head>
+<body>
+    <h2>Number guessing game</h2>
+    <p>Try and guess a random number between 1 and 100.</p>
+    <p>You have 10 attempte to guess the right number.</p>
+    <h1>Guess a number</h1>
+
+    <input type="number" id="userguess">
+    <br>
+    <button id="button">Submit guess</button>
+    <div id="result"></div>
+
+    <p>Previous Guesses : <span id="previousGuess"></span></p>
+    <p id=>Guesses Remaining : <span id="chance"></span> </p>
+</body>
+<script>
+   
+    const answer=19
+    let chance=10
+
+    document.getElementById('chance').innerText=chance
+    const show=document.createElement('p')
+
+    const btn=document.querySelector('#button')
+    btn.addEventListener('click',()=>{
+        const guess=document.getElementById('userguess').value
+        if(guess==answer){
+            show.innerHTML=" congratulation!!!!!!!!!!!!!!!!!!!!!!!!!!!              You guess the right number"
+            document.getElementById('result').appendChild(show)
+        }
+        else{
+            show.innerHTML='You guess the wrong number. Guess again'
+            document.getElementById('result').appendChild(show)
+    
+           let  previousGuess=guess
+           document.getElementById('previousGuess').innerHTML=previousGuess
+           document.getElementById('chance').innerHTML=chance--
+        }
+    })
+
+</script>
+</html>
