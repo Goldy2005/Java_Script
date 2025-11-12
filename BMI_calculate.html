@@ -35,9 +35,10 @@
     
     const btn=document.getElementById('submit')
     
-    btn.addEventListener('click',()=>{
-        const h=document.getElementById('heightinput').value
-        const w=document.getElementById('weightinput').value
+    btn.addEventListener('click',(event)=>{
+        event.preventDefault()
+        const h=parseInt(document.getElementById('heightinput').value)
+        const w=parseInt(document.getElementById('weightinput').value)
     
      const report=document.querySelector('#result')
      report.innerText=`Your BMI is : ${(w*10000)/(h*h)}`
