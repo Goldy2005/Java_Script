@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+</head>
+<style>
+    #block{
+        text-align: center;
+        margin-top: 50px;
+    }
+    input{
+        margin-top: 50px;
+    }
+</style>
+<body>
+    <div id="block">
+        <h1>Weather app</h1>
+        <input type="text" placeholder="Enter your city name" id="input">
+        <button id="button">Search</button>
+        <h1 id="city-name">delhi</h1>
+        <h3 id="city-time">time</h3>
+        <p id="city-humidity">humidity</p>
+    </div>
+
+</body>
+<script>
+    const btn=document.getElementById('button')
+    btn.addEventListener('click',()=>{
+        const city=document.getElementById('input').value
+        getdata(city)
+    })
+
+    const name=document.getElementById('city-name')
+    const time=document.getElementById('city-time')
+    const humidity=document.getElementById('city-humidity')
+    
+    async function getdata(cityname){
+        const response=await fetch(`http://api.weatherapi.com/v1/current.json?key=18349e90e75c45c0895134127252511&q=${cityname}&aqi=yes`)
+        const data=await response.json()
+
+        console.log(data)
+        name.innerHTML=`${data.location.region}`
+        time.innerHTML=`${data.location.localtime}`
+        humidity.innerHTML=`${data.current.humidity}`
+    }
+
+</script>
+</html>
